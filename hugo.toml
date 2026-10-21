@@ -1,10 +1,10 @@
 baseURL = "https://batamaji.github.io/blog/"
 locale = "en-us"
-title = "sharaf"
+title = "batamaji"
 enableRobotsTXT = true
 
 [params]
-  description = "Bugs, vulnerabilities and security research."
+  description = "Blog and projects."
   motd = "cat /etc/motd"
   # avatar = "images/avatar.jpg"
 
