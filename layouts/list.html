@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header class="list-head">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="post-content">{{ . }}</div>{{ end }}
+</header>
+<section class="posts-list">
+  {{ range .Pages.ByDate.Reverse }}
+    {{ partial "post-card.html" . }}
+  {{ end }}
+</section>
+<a class="back-link" href="{{ site.Home.RelPermalink }}">&larr; home</a>
+{{ end }}

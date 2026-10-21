@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-avatar-wrap">
+    {{ with site.Params.avatar }}
+      <img src="{{ . | relURL }}" alt="{{ site.Title }}" class="hero-avatar">
+    {{ else }}
+      <div class="hero-avatar hero-avatar-mono">{{ substr site.Title 0 1 | upper }}</div>
+    {{ end }}
+    <div class="hero-avatar-ring"></div>
+  </div>
+  <h1 class="hero-title">{{ site.Title }}<span class="hero-dot">.</span></h1>
+  <p class="hero-sub">{{ site.Params.description }}</p>
+  <div class="hero-terminal">
+    <span class="term-prompt">$</span>
+    <span class="term-text">{{ site.Params.motd }}</span>
+    <span class="term-cursor"></span>
+  </div>
+  {{ with site.Params.social }}
+    <div class="hero-links">{{ range . }}<a href="{{ .url }}" rel="me noopener">{{ .name }}</a>{{ end }}</div>
+  {{ end }}
+</section>
+<section class="posts-list">
+  {{ range where site.RegularPages "Section" "posts" }}
+    {{ partial "post-card.html" . }}
+  {{ end }}
+</section>
+{{ end }}

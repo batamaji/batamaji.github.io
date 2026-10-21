@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}" data-theme>
+<script>(function(){var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t||"dark")})()</script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ .Description | default site.Params.description }}">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">{{ end }}
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true"><div class="bg-blob bg-blob-1"></div><div class="bg-blob bg-blob-2"></div></div>
+  <nav class="float-nav">
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch theme">
+      <span class="ico-sun">&#9728;</span><span class="ico-moon">&#9790;</span>
+    </button>
+  </nav>
+  <main class="container">{{ block "main" . }}{{ end }}</main>
+  <footer class="site-footer">
+    <span class="footer-face">~(o_o)~</span>
+    <span>&copy; {{ now.Year }} {{ site.Title }}</span>
+    {{ with .OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">rss</a>{{ end }}
+  </footer>
+  <script>
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
+</body>
+</html>
