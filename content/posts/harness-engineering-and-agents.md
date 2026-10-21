@@ -1,19 +1,12 @@
 +++
 title = 'Harness engineering and AI agents'
 date = 2026-10-21T12:00:00+03:00
-tags = ['agents', 'harness', 'security']
+tags = ['agents', 'harness']
 +++
 
 A first post to say what this blog is about.
 
-Most of my time goes into harness engineering: the scaffolding around a model
-that decides what it can see, what it can run, and when it stops. The model is
-rarely the bottleneck — the harness is. Tool design, context budgets, retries,
-sandboxing, and knowing which step to hand back to a human.
-
-The other half is security research. The two overlap more than people expect:
-an agent with shell access is an attack surface, and a harness is a trust
-boundary like any other.
+Most of my time goes into harness engineering: creating AI agents, a lot of trial and error /goal is creating reliable agents for different task "hackbot or research bot".
 
 ## What to expect here
 
