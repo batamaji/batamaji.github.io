@@ -1,4 +1,4 @@
-baseURL = "https://batamaji.github.io/blog/"
+baseURL = "https://batamaji.github.io/"
 locale = "en-us"
 title = "batamaji"
 enableRobotsTXT = true
